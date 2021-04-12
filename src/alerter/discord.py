@@ -3,7 +3,7 @@ import requests
 import traceback
 
 from alerter.common import Alerter, AlerterFactory
-
+from twitch import send_chat_alert
 
 @AlerterFactory.register
 class DiscordAlerter(Alerter):
@@ -31,6 +31,7 @@ class DiscordAlerter(Alerter):
 
     def __call__(self, **kwargs):
         content = kwargs.get('content')
+        send_chat_alert(content)
         _discord_embed_generated = {
             "content": self.mentions,
             "embeds": [

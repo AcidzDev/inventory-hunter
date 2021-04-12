@@ -52,6 +52,7 @@ from scraper import init_scrapers
 from hunter import hunt
 
 
+
 def main():
     try:
         alerters = init_alerters(args)
